@@ -1,0 +1,22 @@
+Ideas for the project report
+1. MEntion the timeline like that in image search paper - From thousands to Billions in 20 years
+2. 
+
+Papers to be read
+1 relevance feedback [Rui et al. 1998]. 
+2. survey  in Zhou and Huang [2003]
+3. Torralba et al. [2008a] collected 80 million images and demonstrated an impressive performance by employing a simple k-nearest neighbor search and voting strategy
+4—Feature. In 1999, Lowe [1999] proposed a new method called the Scale Invariant Feature Transform (SIFT) 
+5—Index. In 1999, Gionis et al. [1999] developed a locality-sensitive hashing (LSH) technique, an efficient solution for the high-dimensional k-nearest neighbor search problem, 
+6—System. In 2001, Google launched its image search system for 250 million Web images, which 
+7  excellent surveys for image retrieval in the early
+years [Rui et al. 1999; Smeulders et al. 2000; Lew et al. 2006; Datta et al. 2008]
+8  vector de-scriptors [Mikolajczyk et al. 2005],
+9 Image as a bag of words - Sivic and Zisserman
+10 Landmark Recognition - Zheng et al
+11 Duplicate based image based search - Wang et al
+12 Shape based image retrieval (Cao et al 2011) and recognition (Sun et al 2012)
+
+Fun points 
+1. Google's first Image search was based on the texts surrounding the image like the URL,metadata
+2. Can use the surrounding text near images as weak features for the image itself - 

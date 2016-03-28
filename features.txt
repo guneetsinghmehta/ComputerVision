@@ -1,0 +1,9 @@
+Features- For detection among shirts
+1. Text Boolean 
+Text on the shirt or not 
+2. Most predominant color - decide on the basis of Hue
+3. Percentage of 3-4 most predominant colors
+4. Use skeletalisation and Roundedness to differentiate between a shirt and t shirt
+5. Assume a Lambertian model - i.e extract the Lambertian out of the image to compare
+6. Collar - type - hood/Collar/No Collar
+

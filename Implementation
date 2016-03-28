@@ -1,0 +1,65 @@
+Goals
+1. Make the program Modular - not complex
+2. Make the system scalable 
+3. 
+
+
+Ideas for image based search
+1. Use SIFT detector for each image - in the region where the shirt is
+
+2. Make a file for each image - 
+containing the features - 
+	Features- For detection among shirts
+	a. Text Boolean 
+	Text on the shirt or not 
+	b. Most predominant color - decide on the basis of Hue
+	c. Percentage of 3-4 most predominant colors
+	d. Use skeletalisation and Roundedness to differentiate between a shirt and t shirt
+	e. Assume a Lambertian model - i.e extract the Lambertian out of the image to compare
+	f. Collar - type - hood/Collar/No Collar
+	g. Sift Features of the shirt in the image
+
+3. Read all files and make have that values stored while running the program
+-ves - a. Not scalable - Memory overflow when there are a lot of images
+
+4 Comparing images in different exposures - focus only on color and not on intensity - Intensity is a LIAR
+
+5 To separate gender T shirts can use the following
+a. Smaller sleeves in Tshirts of females
+b. smaller width of sleeves in female shirts compared to males
+
+6. Can use k nearest neighbors to select the image and give vote according to the distance from the query image. Make a kD tree - 
+
+7. Cannot do a linear search for all features - not scalable. Solution - better use a kd tree or an efficient data structure 
+
+8 Detector
+a. SIFT
+b. MSER - Maximally stable extremal region
+c. SURF 
+d. FAST 
+Mikolajczyk et al. 2005; Mikolajczyk and Schmid 2005; Tuytelaars and Mikolajczyk
+2008; Li and Allinson 2008] for comprehensive reviews and comparisons of these detectors.
+e. GIST 
+
+9 Can use bag of words approach - convert an image to a bag of words , annotate each image query and search for images with similar index words - 
+Negative - Looses spatial information - like position of sun in an image 
+
+10 USe RANSAC - on top results to find the most matching set of images
+
+11 USe Global color and tesxture of the entire region in structural information 
+
+12 Use Hough Transform to find the shape of shirts as shown in the slides
+
+Possible future work-
+1. SIFT transform is not affine invariant. Although it does perform well. Try to change the feature extractor such that it also takes into account the affine transform
+
+
+Tasks
+0. Rapid Object Detection using a cascade of features
+1. Segmentation of image to find the shirt
+r2. SIFT feature extraction
+3. SURF feature extraction
+4. MSER feature extraction
+5. make a kd tree in MATLAB 
+6 Read Indexing from the Image search paper - thousands to billions
+
