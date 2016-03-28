@@ -1,0 +1,4 @@
+%Rough
+temp=rgb2hsv(image);
+maxColor=max(max(temo(:,:,
+colors=
