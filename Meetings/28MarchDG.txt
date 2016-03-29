@@ -18,11 +18,18 @@ Appointments
 3 . Take appointment from Mohit Sir
 
 Danish
-1. Dataset search for shirt images
+1.Done Dataset search for shirt images
 2. Search of vectors for a query
 
 
 Guneet
-1. OpenCV call from MATLAB - code given by Vaibhav
+1.Done OpenCV call from MATLAB - code given by Vaibhav
+last - make a rectangle and run
 2. Batchmode run of MATLAB 
-3. Features for image search- face
+3. Features for image search- torso
+
+Common -
+1. Detecty Torso in image
+
+Future work-
+1. Torso detection - automatic
