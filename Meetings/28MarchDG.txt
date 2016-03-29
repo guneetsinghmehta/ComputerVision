@@ -20,16 +20,21 @@ Appointments
 Danish
 1.Done Dataset search for shirt images
 2. Search of vectors for a query
-
+3. Implementation of search Part
 
 Guneet
 1.Done OpenCV call from MATLAB - code given by Vaibhav
 last - make a rectangle and run
 2. Batchmode run of MATLAB 
 3. Features for image search- torso
+Problems-
+1. Graph cut -  no documentaion . Solution search for paper
+2. Active Contour - apply active contour on HSV - i.e. only the color component of the image
+
 
 Common -
 1. Detecty Torso in image
 
 Future work-
 1. Torso detection - automatic
+
