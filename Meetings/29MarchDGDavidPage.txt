@@ -1,0 +1,10 @@
+Meeting with David Page
+1. Try deep learning with auto encoders
+2. Andrew Ng's tutorial on Deep Learning
+3 Try Thiano - software for deep learning. Also 4 -5 others are there
+4. Dataset - try to get a labelled dataset for the images
+5. Multi Instance Learning - find regions in hte shirt and assign a vector to each region. 
+Match the sub regions of the images in the dataset withthe query image and depending on the vote you giveselect the image from dataaset
+6. Construct more reliable features- either from already extracted features or new features altogether.
+7. distance function for kd tree- use the confidence you have on each feature in the distance function and use it to construct a kd tree
+Also called weighted nearest neighbor or weighted kd tree
