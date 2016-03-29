@@ -1,0 +1,28 @@
+1. Open CV call - check in Python
+2. Mobile server client 
+Input - cropped uimage of shirt
+Output _ thumbnails of the matching searches
+3. MATLAB Headless/ Batchmode 
+4. Port to Open CV
+5. Images
+6. Search part literature - Danish 
+a. On kd tree 
+b. 
+7 Features Vector for image search
+a. Lit search - Guneet
+8 Dataset of images
+
+Appointments
+1. Chuck Dyer - 2:15pm
+2. David Page - 12:15
+3 . Take appointment from Mohit Sir
+
+Danish
+1. Dataset search for shirt images
+2. Search of vectors for a query
+
+
+Guneet
+1. OpenCV call from MATLAB - code given by Vaibhav
+2. Batchmode run of MATLAB 
+3. Features for image search- face
