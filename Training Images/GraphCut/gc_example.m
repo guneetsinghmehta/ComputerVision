@@ -11,11 +11,12 @@ function gc_example()
 %im = im2double(imread('outdoor_small.jpg'));
 figure;
 im = im2double(imread('shirt2.jpg'));
-% im=im(1:8:end,1:8:end,:);
+im = im2double(imread('s4Front.jpg'));
+im=im(1:8:end,1:8:end,:);
 sz = size(im);
 
 % try to segment the image into k different regions
-k = 2;
+k = 4;
 
 % color space distance
 distance = 'sqEuclidean';

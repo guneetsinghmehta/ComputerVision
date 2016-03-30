@@ -2,11 +2,12 @@ function[]=control()
     filenames=extractfield(dir(),'name');
     supportedExts=['.jpg','.png'];
     figure;
-    for i=3:size(filenames,2)%3 because 1st and 2nd are root and parent directories
+    filenames={'airplane.jpg','s3Front.jpg','s4Front.jpg'};
+    for i=1:size(filenames,2)%3 because 1st and 2nd are root and parent directories
         [~,filenameTemp,ext]=fileparts(filenames{i});
         if(isempty(strfind(supportedExts,ext))==0)
            image=imread(filenames{i});
-          if(i>3)
+          if(i>1)
            image=image(1:8:end,1:8:end,:);
           end
 %            image=imadjust(image);
