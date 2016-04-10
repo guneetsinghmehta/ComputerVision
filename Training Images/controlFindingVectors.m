@@ -2,7 +2,7 @@ function[]=controlFindingVectors()
     %Reads two images, opens up a window,asks the user to draw one mask
     %each for the images, saves the mask.
     % find the vectors of the image within the mask
-   addDependencies;
+
    if ~isequal(exist('vl_sift'), 3)
         sift_lib_dir = fullfile('sift_lib', ['mex' lower(computer)]);
         orig_path = addpath(sift_lib_dir);
@@ -39,15 +39,6 @@ function[index]=findQuery(vectorDir,vector)
            index=-1; 
         end
     end  
-end
-
-function[]=addDependencies()
-    if ~isequal(exist('vl_sift'), 3)
-        sift_lib_dir = fullfile('sift_lib', ['mex' lower(computer)]);
-        orig_path = addpath(sift_lib_dir);
-        % Restore the original path upon function completion
-        temp = onCleanup(@()path(orig_path));
-    end
 end
 
 function[mask]=makeMasks(image,i)
