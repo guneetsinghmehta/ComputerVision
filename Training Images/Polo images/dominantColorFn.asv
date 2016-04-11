@@ -1,0 +1,21 @@
+  function[dominantColor]=dominantColorFn(image,mask)
+        %input - image of shirt,mask - region where shirt is present
+        %output - dominantColor -most dominant color (except black)
+        %       -dominant3ColorPercent - percent contribution of top three
+        %       colors(excluding black)
+  
+        %see the colormap by  figure;imagesc(hue);colormap hsv;colorbar;
+        temp=rgb2hsv(image);
+        hue=uint8(temp(:,:,1)*255);%255 discretecolors
+        value=temp(:,:,3);% is zero for a black image
+        h=imhist(hue);%find color only in the mask region
+        [~,index]=sort(h,'descend');
+        dominantColor=index(1);
+       %  figure;plot(1:256,h);
+        if(dominantColor==1)
+           %due to black background. Choose the next color
+           dominantColor=index(2);
+        end
+        
+        
+    end

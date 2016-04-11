@@ -6,6 +6,11 @@ function[]=finalScript()
         temp = onCleanup(@()path(orig_path));
     end
 
+    %read two images
+    % find Sift features
+    % read another image - shifted red shirt, find sift features
+    % match the sift features
+    
     filenames={'polo1.jpg','polo2.jpg','polo3.jpg','polo4.jpg','polo5.jpg','polo6.jpeg'};
     scaleDownFactor=1;
     vectorDatabase=populateVectorDatabase(filenames,scaleDownFactor);
@@ -20,13 +25,11 @@ function[]=finalScript()
     transformedImage=transformedImage.*uint8(maskTemp);
     imwrite(transformedImage,'query.tif');
     queryMatchResult=queryMatch(vectorDatabase,'query.tif');
-%     queryMatchResult=queryMatch(vectorDatabase,'polo7.jpg');
     display(queryMatchResult);
     
     %showing results
     figure;
-    subplot(1,2,1);imshow(imread('query.tif'));title('query');
-    subplot(1,2,2);imshow(imread(queryMatchResult));title('closest match');
+    subplot(1,2,1);imshow(imread(
     
 end
 

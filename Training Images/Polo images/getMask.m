@@ -1,4 +1,6 @@
 function[mask]=getMask(image)
+%returns a 3 channel mask for a shirt image in catalogue image
+% not for finding mask of torso in a wild image
     se=strel('disk',3);
     border=20;
     gray=rgb2gray(image);
