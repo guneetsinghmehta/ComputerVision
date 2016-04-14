@@ -14,3 +14,33 @@ Assume a Lambertian model - i.e extract the Lambertian out of the image to compa
 1. Done Add other features
 2. Done Define a distance measure for all features
 3. Extract the torso mask of a wild image
+
+4 Image net
+5 Tamara
+6 More features - read paper and implement it
+7 crawling 
+8 Machine Learning 
+
+Timeline - Guneet
+1 Wednesday shirts paper, Torso detection
+2 Wednesday - mex file ready
+3 Wednesday - Saturday - Machine Learning 
+
+Danish
+1. Wednesday - Torando server
+2. Fri-Sunday -> App 
+3. R CNN 
+
+To do - 11th April
+1. Paper read
+2. Graph cut code from somewhere
+3. Bigger Database - 
+4. Torso detection
+5. CNN
+
+Ideas -
+1. sRGB to CIELAB space
+2. Color ratios
+a. greater than 0.45 - Primary color
+b. between 0.1 and 0.45 - secondary colors
+c. decorative colors - 0.02 to 0.1

@@ -1,10 +1,11 @@
 function[]=finalScript()
     %Adding Sift Library
-    if ~isequal(exist('vl_sift'), 3)
+   if ~isequal(exist('vl_sift'), 3)
         sift_lib_dir = fullfile('sift_lib', ['mex' lower(computer)]);
         orig_path = addpath(sift_lib_dir);
         temp = onCleanup(@()path(orig_path));
     end
+    
 
     filenames={'polo1.jpg','polo2.jpg','polo3.jpg','polo4.jpg','polo5.jpg','polo6.jpeg'};
     scaleDownFactor=1;

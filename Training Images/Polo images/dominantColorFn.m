@@ -5,10 +5,10 @@
         %       colors(excluding black)
         %caveat - the color of white is a bunch of random colors
         %see the colormap by  figure;imagesc(hue);colormap hsv;colorbar;
+        %caveat2 - disregards the darkness and lightness of color
         
         temp=rgb2hsv(image);
         hue=uint8(temp(:,:,1)*255);%255 discretecolors
-        value=temp(:,:,3);% is zero for a black image
         h=imhist(hue);%find color only in the mask region
         [hsorted,index]=sort(h,'descend');
         dominantColor=index(1);
