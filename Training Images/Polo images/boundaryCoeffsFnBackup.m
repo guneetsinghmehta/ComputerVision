@@ -1,8 +1,29 @@
-function[fftCoeffs]=boundaryCoeffsFn(image,mask3D)
+function[fftCoeffs]=boundaryCoeffsFnBackup(image,mask3D)
     %input - image is 3D, mask3D is 3D
-    %output - fft coeffs 
-    fftCoeffs=0;
+    %output - normalized fft coeffs magnitude
+    %find 500(n) points using normalize boundary
+    %z=x+yi - convert
+%     1 subtract the mean of x and mean of y - not center of object
+%     2 find dft using fft
+%     3 find the absolute values of fft
+%     4 divide by the first element - to make scale invariant
+%     5 first element - DC component - discard this - translation invariant
+%     6 discard high frequencies - say 100 onwards
+%     7 to make reflection invariant - just reverse the direction of traversal -
+%     in effect compare with the reversed conjugate of the original - also 
+%     compare with reverse conjugate and output the minimum distance
+%     
+%     8 ***CAUTION - to make rotation invariant - remove the imaginary part of the
+%     fft just after taking the fft***
+%     9 similarity score function - on a scale of 0 to 1
+%     
+%     Tests
+%     1. Same image
+%     2. Image of two t shirts
+%     3. one shirt one t shirt
+%     4. one shirt and one trouser
     
+    fftCoeffs=0;
     mask=mask3D(:,:,1);
     % define the number of points on each boundary
     n=500;
@@ -23,17 +44,22 @@ function[fftCoeffs]=boundaryCoeffsFn(image,mask3D)
     %find centorid of the shirt
     label=bwlabel(mask);
     stat=regionprops(label,'centroid');
-    xc=stat.Centroid
+    xc=stat.Centroid(1);
+    yc=stat.Centroid(2);
     % define z=(x-xc)+i(y-yc)
+    z=(x-xc)+(y-yc)*1i;
     
     %find fft of z
-    
+    zfft=fft(z);
+    display(1);
     % remove the first component - translation invariant
-    
     %remove higher freq components - removes noise
 end
 
 function[x,y]=normalizeBoundary(boundary,n)
+%Finds a boundary containing n points. If the boundary has less than n
+%points then interpolation is done.
+%If boundary has more than n points then the other points are thrown
     s1=size(boundary,1);s2=n-s1;
     x=zeros(1,n);
     y=zeros(1,n);
@@ -90,3 +116,12 @@ function[x2]=indices(x,n)
        x2(i)=i*s1/s2;
     end
 end
+
+%  
+%     x=x-mean(x);%Makes it translation invariant
+%     y=y-mean(y);
+%     z=x+y*(1i);
+%     zMaxAmp=max(abs(z));
+%     z=z/zMaxAmp; %Makes it scale invariant
+%     
+%     Zfft=fft(z);

@@ -1,4 +1,4 @@
-function[vectorDatabase]=populateVectorDatabase(filenames,scaleDownFactor)
+function[vectorDatabase,gaborArray]=populateVectorDatabase(filenames,scaleDownFactor)
     % Input- imageNames as cell array
     % scale down the image by the factor
     if ~isequal(exist('vl_sift'), 3)
@@ -23,8 +23,10 @@ function[vectorDatabase]=populateVectorDatabase(filenames,scaleDownFactor)
         % find Sift features
         gray_s=rgb2gray(im2single(image));
         [Fs, Ds] = vl_sift(gray_s);
-        %dominant color
-        [dominantColor,dominant3ColorRatio,colorInfo]=dominantColorFn2(image,mask);
+        %dominant color - Generate colors on the basis of a color wheel /
+        %color map - import the colormap - hsv- colormap =hsv(256)
+        
+        [colorHistogram]=colorHistogramFn(image,mask);
         
         %detect patterns in R,G and B - right now in grayscale
         patternVector=patternVectorFn(image,mask,gaborArray);
@@ -36,9 +38,9 @@ function[vectorDatabase]=populateVectorDatabase(filenames,scaleDownFactor)
         vectorDatabase{i}.filename=filenames{1,i};
         vectorDatabase{i}.Fs=Fs;
         vectorDatabase{i}.Ds=Ds;
-        vectorDatabase{i}.dominantColor=dominantColor;
-        vectorDatabase{i}.dominant3ColorRatio=dominant3ColorRatio;
-        vectorDatabase{i}.colorInfo=colorInfo;% Not being used
+        vectorDatabase{i}.colorHistogram=colorHistogram;
+        vectorDatabase{i}.patternVector=patternVector;% Not being used
+        vectorDatabase{i}.boundaryCoeffs=boundaryCoeffs;% Not being used
     end
    
 end

@@ -42,9 +42,9 @@ function[patternVector]=patternVectorFn(image,mask,gaborArray)
         for j = 1:v
             gaborResult = imfilter(img, gaborArray{i,j});
             gaborResult=mask2(:,:,1).*gaborResult;
-            clf(f1);
-            figure(f1);imagesc(real(gaborResult));colorbar;
-            pause(1);
+%             clf(f1);
+%             figure(f1);imagesc(real(gaborResult));colorbar;
+%             pause(1);
             patternVector.mean{i,j}=mean(gaborResult(:));
             patternVector.std{i,j}=std(gaborResult(:));
         end

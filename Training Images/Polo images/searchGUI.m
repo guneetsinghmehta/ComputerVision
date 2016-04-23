@@ -19,6 +19,7 @@ function[]=searchGUI()
     crop_box=uicontrol('Parent',searchGUI,'Style','Pushbutton','Units','normalized','Position',[0.05 0.25 0.9 0.2],'String','Crop','Callback',@cropFn);
     reset_box=uicontrol('Parent',searchGUI,'Style','Pushbutton','Units','normalized','Position',[0.05 0.0 0.9 0.2],'String','Reset','Callback',@resetFn);
     global vectorDatabase;
+    global gaborArray
     %open figure, show the query image
     
     
@@ -28,14 +29,14 @@ function[]=searchGUI()
         set(train_box,'Enable','off');
         filenames={'polo3.jpg','polo2.jpg','polo1.jpg','polo4.jpg','polo5.jpg','polo6.jpeg'};
         scaleDownFactor=1;
-        vectorDatabase=populateVectorDatabase(filenames,scaleDownFactor);
+        [vectorDatabase,gaborArray]=populateVectorDatabase(filenames,scaleDownFactor);
     end
 
     function queryFn(~,~)
         [filename,pathname,~]=uigetfile({'*.tif';'*.tiff';'*.jpg';'*.jpeg'},'Select query Image','MultiSelect','off'); 
         queryFilename=fullfile(pathname,filename);
         number=3;
-        [closestFilenames,distance]=queryMatch2(vectorDatabase,queryFilename,number);
+        [closestFilenames,distance]=queryMatch2(vectorDatabase,queryFilename,number,gaborArray);
         display(closestFilenames);
         figure(imageFigure);
         subplot(1,number+1,1);imshow(imread(queryFilename));title('query Image');
